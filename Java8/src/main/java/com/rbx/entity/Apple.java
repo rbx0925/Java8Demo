@@ -3,6 +3,8 @@ package com.rbx.entity;
 import cn.hutool.core.date.BetweenFormatter;
 import cn.hutool.core.io.IORuntimeException;
 import cn.hutool.crypto.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.asn1.x9.X9ECParameters;
@@ -27,6 +29,8 @@ import java.security.PublicKey;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 
+@Data
+@AllArgsConstructor
 public class Apple {
 
     private Integer num;
