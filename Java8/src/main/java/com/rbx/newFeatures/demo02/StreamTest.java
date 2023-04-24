@@ -1,4 +1,4 @@
-package com.rbx.demo02;
+package com.rbx.newFeatures.demo02;
 
 import com.rbx.entity.Employee;
 import com.rbx.entity.Apple;

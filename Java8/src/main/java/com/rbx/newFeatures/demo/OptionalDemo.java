@@ -1,4 +1,4 @@
-package com.rbx.demo;
+package com.rbx.newFeatures.demo;
 
 import com.rbx.entity.Author;
 import com.rbx.entity.Book;

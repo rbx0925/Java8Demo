@@ -1,4 +1,4 @@
-package com.rbx.demo;
+package com.rbx.newFeatures.demo;
 
 import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
