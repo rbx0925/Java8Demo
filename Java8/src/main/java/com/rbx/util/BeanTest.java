@@ -1,3 +1,4 @@
+/*
 package com.rbx.util;
 
 import cn.hutool.core.bean.*;
@@ -48,11 +49,13 @@ import static com.alibaba.cloud.sentinel.SentinelConstants.CHARSET;
 import static com.alibaba.csp.sentinel.config.SentinelConfig.*;
 import static org.junit.Assert.assertEquals;
 
+*/
 /**
  * @author <a href="mailto:minxin.fan@ikang.com">minxin.fan</a>
  * @description Map和Bean的相互转换
  * @date 2022/4/2
- */
+ *//*
+
 public class BeanTest {
 
     public static void main(String[] args) {
@@ -80,14 +83,16 @@ public class BeanTest {
         System.out.println(person.getName());
     }
 
-    /**
+    */
+/**
      * Map转换层Bean，使用泛型免去了类型转换的麻烦。
      *
      * @param <T>
      * @param map
      * @param class1
      * @return
-     */
+     *//*
+
     public static <T> T map2Bean(Map<String, String> map, Class<T> class1) {
         T bean = null;
         try {
@@ -302,7 +307,8 @@ public class BeanTest {
 
     }
 
-    /**
+    */
+/**
      *
      * BeanUtil
      *
@@ -318,12 +324,14 @@ public class BeanTest {
      * @return 是否为可读的Bean对象
      * @see #hasGetter(Class)
      * @see #hasPublicField(Class)
-     */
+     *//*
+
     public static boolean isReadableBean(Class<?> clazz) {
         return hasGetter(clazz) || hasPublicField(clazz);
     }
 
-    /**
+    */
+/**
      * 判断是否为Bean对象，判定方法是：
      *
      * <pre>
@@ -335,19 +343,22 @@ public class BeanTest {
      * @return 是否为Bean对象
      * @see #hasSetter(Class)
      * @see #hasPublicField(Class)
-     */
+     *//*
+
     public static boolean isBean(Class<?> clazz) {
         return hasSetter(clazz) || hasPublicField(clazz);
     }
 
-    /**
+    */
+/**
      * 判断是否有Setter方法<br>
      * 判定方法是否存在只有一个参数的setXXX方法
      *
      * @param clazz 待测试类
      * @return 是否为Bean对象
      * @since 4.2.2
-     */
+     *//*
+
     public static boolean hasSetter(Class<?> clazz) {
         if (ClassUtil.isNormalClass(clazz)) {
             final Method[] methods = clazz.getMethods();
@@ -361,14 +372,16 @@ public class BeanTest {
         return false;
     }
 
-    /**
+    */
+/**
      * 判断是否为Bean对象<br>
      * 判定方法是否存在只有无参数的getXXX方法或者isXXX方法
      *
      * @param clazz 待测试类
      * @return 是否为Bean对象
      * @since 4.2.2
-     */
+     *//*
+
     public static boolean hasGetter(Class<?> clazz) {
         if (ClassUtil.isNormalClass(clazz)) {
             for (Method method : clazz.getMethods()) {
@@ -382,13 +395,15 @@ public class BeanTest {
         return false;
     }
 
-    /**
+    */
+/**
      * 指定类中是否有public类型字段(static字段除外)
      *
      * @param clazz 待测试类
      * @return 是否有public类型字段
      * @since 5.1.0
-     */
+     *//*
+
     public static boolean hasPublicField(Class<?> clazz) {
         if (ClassUtil.isNormalClass(clazz)) {
             for (Field field : clazz.getFields()) {
@@ -401,58 +416,68 @@ public class BeanTest {
         return false;
     }
 
-    /**
+    */
+/**
      * 创建动态Bean
      *
      * @param bean 普通Bean或Map
      * @return {@link DynaBean}
      * @since 3.0.7
-     */
+     *//*
+
     public static DynaBean createDynaBean(Object bean) {
         return new DynaBean(bean);
     }
 
-    /**
+    */
+/**
      * 查找类型转换器 {@link PropertyEditor}
      *
      * @param type 需要转换的目标类型
      * @return {@link PropertyEditor}
-     */
+     *//*
+
     public static PropertyEditor findEditor(Class<?> type) {
         return PropertyEditorManager.findEditor(type);
     }
 
-    /**
+    */
+/**
      * 获取{@link BeanDesc} Bean描述信息
      *
      * @param clazz Bean类
      * @return {@link BeanDesc}
      * @since 3.1.2
-     */
+     *//*
+
     public static BeanDesc getBeanDesc(Class<?> clazz) {
         return BeanDescCache.INSTANCE.getBeanDesc(clazz, () -> new BeanDesc(clazz));
     }
 
-    /**
+    */
+/**
      * 遍历Bean的属性
      *
      * @param clazz  Bean类
      * @param action 每个元素的处理类
      * @since 5.4.2
-     */
+     *//*
+
     public static void descForEach(Class<?> clazz, Consumer<? super PropDesc> action) {
         getBeanDesc(clazz).getProps().forEach(action);
     }
 
     // --------------------------------------------------------------------------------------------------------- PropertyDescriptor
 
-    /**
+    */
+/**
      * 获得Bean字段描述数组
      *
      * @param clazz Bean类
      * @return 字段描述数组
      * @throws BeanException 获取属性异常
-     */
+     *//*
+
     public static PropertyDescriptor[] getPropertyDescriptors(Class<?> clazz) throws BeanException {
         BeanInfo beanInfo;
         try {
@@ -466,26 +491,30 @@ public class BeanTest {
         });
     }
 
-    /**
+    */
+/**
      * 获得字段名和字段描述Map，获得的结果会缓存在 {@link BeanInfoCache}中
      *
      * @param clazz      Bean类
      * @param ignoreCase 是否忽略大小写
      * @return 字段名和字段描述Map
      * @throws BeanException 获取属性异常
-     */
+     *//*
+
     public static Map<String, PropertyDescriptor> getPropertyDescriptorMap(Class<?> clazz, boolean ignoreCase) throws BeanException {
         return BeanInfoCache.INSTANCE.getPropertyDescriptorMap(clazz, ignoreCase, () -> internalGetPropertyDescriptorMap(clazz, ignoreCase));
     }
 
-    /**
+    */
+/**
      * 获得字段名和字段描述Map。内部使用，直接获取Bean类的PropertyDescriptor
      *
      * @param clazz      Bean类
      * @param ignoreCase 是否忽略大小写
      * @return 字段名和字段描述Map
      * @throws BeanException 获取属性异常
-     */
+     *//*
+
     private static Map<String, PropertyDescriptor> internalGetPropertyDescriptorMap(Class<?> clazz, boolean ignoreCase) throws BeanException {
         final PropertyDescriptor[] propertyDescriptors = getPropertyDescriptors(clazz);
         final Map<String, PropertyDescriptor> map = ignoreCase ? new CaseInsensitiveMap<>(propertyDescriptors.length, 1)
@@ -497,19 +526,22 @@ public class BeanTest {
         return map;
     }
 
-    /**
+    */
+/**
      * 获得Bean类属性描述，大小写敏感
      *
      * @param clazz     Bean类
      * @param fieldName 字段名
      * @return PropertyDescriptor
      * @throws BeanException 获取属性异常
-     */
+     *//*
+
     public static PropertyDescriptor getPropertyDescriptor(Class<?> clazz, final String fieldName) throws BeanException {
         return getPropertyDescriptor(clazz, fieldName, false);
     }
 
-    /**
+    */
+/**
      * 获得Bean类属性描述
      *
      * @param clazz      Bean类
@@ -517,13 +549,15 @@ public class BeanTest {
      * @param ignoreCase 是否忽略大小写
      * @return PropertyDescriptor
      * @throws BeanException 获取属性异常
-     */
+     *//*
+
     public static PropertyDescriptor getPropertyDescriptor(Class<?> clazz, final String fieldName, boolean ignoreCase) throws BeanException {
         final Map<String, PropertyDescriptor> map = getPropertyDescriptorMap(clazz, ignoreCase);
         return (null == map) ? null : map.get(fieldName);
     }
 
-    /**
+    */
+/**
      * 获得字段值，通过反射直接获得字段值，并不调用getXXX方法<br>
      * 对象同样支持Map类型，fieldNameOrIndex即为key
      *
@@ -536,7 +570,8 @@ public class BeanTest {
      * @param bean             Bean对象
      * @param fieldNameOrIndex 字段名或序号，序号支持负数
      * @return 字段值
-     */
+     *//*
+
     public static Object getFieldValue(Object bean, String fieldNameOrIndex) {
         if (null == bean || null == fieldNameOrIndex) {
             return null;
@@ -563,14 +598,16 @@ public class BeanTest {
         }
     }
 
-    /**
+    */
+/**
      * 设置字段值，通过反射设置字段值，并不调用setXXX方法<br>
      * 对象同样支持Map类型，fieldNameOrIndex即为key
      *
      * @param bean             Bean
      * @param fieldNameOrIndex 字段名或序号，序号支持负数
      * @param value            值
-     */
+     *//*
+
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void setFieldValue(Object bean, String fieldNameOrIndex, Object value) {
         if (bean instanceof Map) {
@@ -585,7 +622,8 @@ public class BeanTest {
         }
     }
 
-    /**
+    */
+/**
      * 解析Bean中的属性值
      *
      * @param <T>        属性值类型
@@ -594,7 +632,8 @@ public class BeanTest {
      * @return Bean属性值，bean为{@code null}或者express为空，返回{@code null}
      * @see BeanPath#get(Object)
      * @since 3.0.7
-     */
+     *//*
+
     @SuppressWarnings("unchecked")
     public static <T> T getProperty(Object bean, String expression) {
         if (null == bean || StrUtil.isBlank(expression)) {
@@ -603,7 +642,8 @@ public class BeanTest {
         return (T) BeanPath.create(expression).get(bean);
     }
 
-    /**
+    */
+/**
      * 解析Bean中的属性值
      *
      * @param bean       Bean对象，支持Map、List、Collection、Array
@@ -611,14 +651,16 @@ public class BeanTest {
      * @param value      属性值
      * @see BeanPath#get(Object)
      * @since 4.0.6
-     */
+     *//*
+
     public static void setProperty(Object bean, String expression, Object value) {
         BeanPath.create(expression).set(bean, value);
     }
 
     // --------------------------------------------------------------------------------------------- mapToBean
 
-    /**
+    */
+/**
      * Map转换为Bean对象
      *
      * @param <T>           Bean类型
@@ -627,13 +669,15 @@ public class BeanTest {
      * @param isIgnoreError 是否忽略注入错误
      * @return Bean
      * @deprecated 请使用 {@link #toBean(Object, Class)} 或 {@link #toBeanIgnoreError(Object, Class)}
-     */
+     *//*
+
     @Deprecated
     public static <T> T mapToBean(Map<?, ?> map, Class<T> beanClass, boolean isIgnoreError) {
         return fillBeanWithMap(map, ReflectUtil.newInstanceIfPossible(beanClass), isIgnoreError);
     }
 
-    /**
+    */
+/**
      * Map转换为Bean对象<br>
      * 忽略大小写
      *
@@ -643,13 +687,15 @@ public class BeanTest {
      * @param isIgnoreError 是否忽略注入错误
      * @return Bean
      * @deprecated 请使用 {@link #toBeanIgnoreCase(Object, Class, boolean)}
-     */
+     *//*
+
     @Deprecated
     public static <T> T mapToBeanIgnoreCase(Map<?, ?> map, Class<T> beanClass, boolean isIgnoreError) {
         return fillBeanWithMapIgnoreCase(map, ReflectUtil.newInstanceIfPossible(beanClass), isIgnoreError);
     }
 
-    /**
+    */
+/**
      * Map转换为Bean对象
      *
      * @param <T>         Bean类型
@@ -658,13 +704,15 @@ public class BeanTest {
      * @param copyOptions 转Bean选项
      * @return Bean
      * @deprecated 请使用 {@link #toBean(Object, Class, CopyOptions)}
-     */
+     *//*
+
     @Deprecated
     public static <T> T mapToBean(Map<?, ?> map, Class<T> beanClass, CopyOptions copyOptions) {
         return fillBeanWithMap(map, ReflectUtil.newInstanceIfPossible(beanClass), copyOptions);
     }
 
-    /**
+    */
+/**
      * Map转换为Bean对象
      *
      * @param <T>           Bean类型
@@ -673,14 +721,16 @@ public class BeanTest {
      * @param isToCamelCase 是否将Map中的下划线风格key转换为驼峰风格
      * @param copyOptions   转Bean选项
      * @return Bean
-     */
+     *//*
+
     public static <T> T mapToBean(Map<?, ?> map, Class<T> beanClass, boolean isToCamelCase, CopyOptions copyOptions) {
         return fillBeanWithMap(map, ReflectUtil.newInstanceIfPossible(beanClass), isToCamelCase, copyOptions);
     }
 
     // --------------------------------------------------------------------------------------------- fillBeanWithMap
 
-    /**
+    */
+/**
      * 使用Map填充Bean对象
      *
      * @param <T>           Bean类型
@@ -688,12 +738,14 @@ public class BeanTest {
      * @param bean          Bean
      * @param isIgnoreError 是否忽略注入错误
      * @return Bean
-     */
+     *//*
+
     public static <T> T fillBeanWithMap(Map<?, ?> map, T bean, boolean isIgnoreError) {
         return fillBeanWithMap(map, bean, false, isIgnoreError);
     }
 
-    /**
+    */
+/**
      * 使用Map填充Bean对象，可配置将下划线转换为驼峰
      *
      * @param <T>           Bean类型
@@ -702,12 +754,14 @@ public class BeanTest {
      * @param isToCamelCase 是否将下划线模式转换为驼峰模式
      * @param isIgnoreError 是否忽略注入错误
      * @return Bean
-     */
+     *//*
+
     public static <T> T fillBeanWithMap(Map<?, ?> map, T bean, boolean isToCamelCase, boolean isIgnoreError) {
         return fillBeanWithMap(map, bean, isToCamelCase, CopyOptions.create().setIgnoreError(isIgnoreError));
     }
 
-    /**
+    */
+/**
      * 使用Map填充Bean对象，忽略大小写
      *
      * @param <T>           Bean类型
@@ -715,12 +769,14 @@ public class BeanTest {
      * @param bean          Bean
      * @param isIgnoreError 是否忽略注入错误
      * @return Bean
-     */
+     *//*
+
     public static <T> T fillBeanWithMapIgnoreCase(Map<?, ?> map, T bean, boolean isIgnoreError) {
         return fillBeanWithMap(map, bean, CopyOptions.create().setIgnoreCase(true).setIgnoreError(isIgnoreError));
     }
 
-    /**
+    */
+/**
      * 使用Map填充Bean对象
      *
      * @param <T>         Bean类型
@@ -728,12 +784,14 @@ public class BeanTest {
      * @param bean        Bean
      * @param copyOptions 属性复制选项 {@link CopyOptions}
      * @return Bean
-     */
+     *//*
+
     public static <T> T fillBeanWithMap(Map<?, ?> map, T bean, CopyOptions copyOptions) {
         return fillBeanWithMap(map, bean, false, copyOptions);
     }
 
-    /**
+    */
+/**
      * 使用Map填充Bean对象
      *
      * @param <T>           Bean类型
@@ -743,7 +801,8 @@ public class BeanTest {
      * @param copyOptions   属性复制选项 {@link CopyOptions}
      * @return Bean
      * @since 3.3.1
-     */
+     *//*
+
     public static <T> T fillBeanWithMap(Map<?, ?> map, T bean, boolean isToCamelCase, CopyOptions copyOptions) {
         if (MapUtil.isEmpty(map)) {
             return bean;
@@ -757,7 +816,8 @@ public class BeanTest {
 
     // --------------------------------------------------------------------------------------------- fillBean
 
-    /**
+    */
+/**
      * 对象或Map转Bean
      *
      * @param <T>    转换的Bean类型
@@ -765,12 +825,14 @@ public class BeanTest {
      * @param clazz  目标的Bean类型
      * @return Bean对象
      * @since 4.1.20
-     */
+     *//*
+
     public static <T> T toBean(Object source, Class<T> clazz) {
         return toBean(source, clazz, null);
     }
 
-    /**
+    */
+/**
      * 对象或Map转Bean，忽略字段转换时发生的异常
      *
      * @param <T>    转换的Bean类型
@@ -778,12 +840,14 @@ public class BeanTest {
      * @param clazz  目标的Bean类型
      * @return Bean对象
      * @since 5.4.0
-     */
+     *//*
+
     public static <T> T toBeanIgnoreError(Object source, Class<T> clazz) {
         return toBean(source, clazz, CopyOptions.create().setIgnoreError(true));
     }
 
-    /**
+    */
+/**
      * 对象或Map转Bean，忽略字段转换时发生的异常
      *
      * @param <T>         转换的Bean类型
@@ -792,7 +856,8 @@ public class BeanTest {
      * @param ignoreError 是否忽略注入错误
      * @return Bean对象
      * @since 5.4.0
-     */
+     *//*
+
     public static <T> T toBeanIgnoreCase(Object source, Class<T> clazz, boolean ignoreError) {
         return toBean(source, clazz,
                 CopyOptions.create()
@@ -800,7 +865,8 @@ public class BeanTest {
                         .setIgnoreError(ignoreError));
     }
 
-    /**
+    */
+/**
      * 对象或Map转Bean
      *
      * @param <T>     转换的Bean类型
@@ -809,7 +875,8 @@ public class BeanTest {
      * @param options 属性拷贝选项
      * @return Bean对象
      * @since 5.2.4
-     */
+     *//*
+
     public static <T> T toBean(Object source, Class<T> clazz, CopyOptions options) {
         if (null == source) {
             return null;
@@ -819,7 +886,8 @@ public class BeanTest {
         return target;
     }
 
-    /**
+    */
+/**
      * ServletRequest 参数转Bean
      *
      * @param <T>           Bean类型
@@ -827,7 +895,8 @@ public class BeanTest {
      * @param valueProvider 值提供者
      * @param copyOptions   拷贝选项，见 {@link CopyOptions}
      * @return Bean
-     */
+     *//*
+
     public static <T> T toBean(Class<T> beanClass, ValueProvider<String> valueProvider, CopyOptions copyOptions) {
         if (null == beanClass || null == valueProvider) {
             return null;
@@ -835,7 +904,8 @@ public class BeanTest {
         return fillBean(ReflectUtil.newInstanceIfPossible(beanClass), valueProvider, copyOptions);
     }
 
-    /**
+    */
+/**
      * 填充Bean的核心方法
      *
      * @param <T>           Bean类型
@@ -843,7 +913,8 @@ public class BeanTest {
      * @param valueProvider 值提供者
      * @param copyOptions   拷贝选项，见 {@link CopyOptions}
      * @return Bean
-     */
+     *//*
+
     public static <T> T fillBean(T bean, ValueProvider<String> valueProvider, CopyOptions copyOptions) {
         if (null == valueProvider) {
             return bean;
@@ -854,24 +925,28 @@ public class BeanTest {
 
     // --------------------------------------------------------------------------------------------- beanToMap
 
-    /**
+    */
+/**
      * 对象转Map，不进行驼峰转下划线，不忽略值为空的字段
      *
      * @param bean bean对象
      * @return Map
-     */
+     *//*
+
     public static Map<String, Object> beanToMap(Object bean) {
         return beanToMap(bean, false, false);
     }
 
-    /**
+    */
+/**
      * 对象转Map
      *
      * @param bean              bean对象
      * @param isToUnderlineCase 是否转换为下划线模式
      * @param ignoreNullValue   是否忽略值为空的字段
      * @return Map
-     */
+     *//*
+
     public static Map<String, Object> beanToMap(Object bean, boolean isToUnderlineCase, boolean ignoreNullValue) {
         if (null == bean) {
             return null;
@@ -879,7 +954,8 @@ public class BeanTest {
         return beanToMap(bean, new LinkedHashMap<>(), isToUnderlineCase, ignoreNullValue);
     }
 
-    /**
+    */
+/**
      * 对象转Map
      *
      * @param bean              bean对象
@@ -888,7 +964,8 @@ public class BeanTest {
      * @param ignoreNullValue   是否忽略值为空的字段
      * @return Map
      * @since 3.2.3
-     */
+     *//*
+
     public static Map<String, Object> beanToMap(Object bean, Map<String, Object> targetMap, final boolean isToUnderlineCase, boolean ignoreNullValue) {
         if (null == bean) {
             return null;
@@ -896,7 +973,8 @@ public class BeanTest {
 
         return beanToMap(bean, targetMap, ignoreNullValue, key -> isToUnderlineCase ? StrUtil.toUnderlineCase(key) : key);
     }
-    /**
+    */
+/**
      * 对象转Map<br>
      * 通过实现{@link Editor} 可以自定义字段值，如果这个Editor返回null则忽略这个字段，以便实现：
      *
@@ -912,7 +990,8 @@ public class BeanTest {
      * @param keyEditor       属性字段（Map的key）编辑器，用于筛选、编辑key，如果这个Editor返回null则忽略这个字段
      * @return Map
      * @since 4.0.5
-     */
+     *//*
+
     public static Map<String, Object> beanToMap(Object bean, Map<String, Object> targetMap, boolean ignoreNullValue, Editor<String> keyEditor) {
         if (null == bean) {
             return null;
@@ -927,7 +1006,8 @@ public class BeanTest {
 
     // --------------------------------------------------------------------------------------------- copyProperties
 
-    /**
+    */
+/**
      * 按照Bean对象属性创建对应的Class对象，并忽略某些属性
      *
      * @param <T>              对象类型
@@ -935,49 +1015,57 @@ public class BeanTest {
      * @param tClass           目标Class
      * @param ignoreProperties 不拷贝的的属性列表
      * @return 目标对象
-     */
+     *//*
+
     public static <T> T copyProperties(Object source, Class<T> tClass, String... ignoreProperties) {
         T target = ReflectUtil.newInstanceIfPossible(tClass);
         copyProperties(source, target, CopyOptions.create().setIgnoreProperties(ignoreProperties));
         return target;
     }
 
-    /**
+    */
+/**
      * 复制Bean对象属性<br>
      * 限制类用于限制拷贝的属性，例如一个类我只想复制其父类的一些属性，就可以将editable设置为父类
      *
      * @param source           源Bean对象
      * @param target           目标Bean对象
      * @param ignoreProperties 不拷贝的的属性列表
-     */
+     *//*
+
     public static void copyProperties(Object source, Object target, String... ignoreProperties) {
         copyProperties(source, target, CopyOptions.create().setIgnoreProperties(ignoreProperties));
     }
 
-    /**
+    */
+/**
      * 复制Bean对象属性<br>
      *
      * @param source     源Bean对象
      * @param target     目标Bean对象
      * @param ignoreCase 是否忽略大小写
-     */
+     *//*
+
     public static void copyProperties(Object source, Object target, boolean ignoreCase) {
         BeanCopier.create(source, target, CopyOptions.create().setIgnoreCase(ignoreCase)).copy();
     }
 
-    /**
+    */
+/**
      * 复制Bean对象属性<br>
      * 限制类用于限制拷贝的属性，例如一个类我只想复制其父类的一些属性，就可以将editable设置为父类
      *
      * @param source      源Bean对象
      * @param target      目标Bean对象
      * @param copyOptions 拷贝选项，见 {@link CopyOptions}
-     */
+     *//*
+
     public static void copyProperties(Object source, Object target, CopyOptions copyOptions) {
         BeanCopier.create(source, target, ObjectUtil.defaultIfNull(copyOptions, CopyOptions.create())).copy();
     }
 
-    /**
+    */
+/**
      * 复制集合中的Bean属性<br>
      * 此方法遍历集合中每个Bean，复制其属性后加入一个新的{@link List}中。
      *
@@ -987,7 +1075,8 @@ public class BeanTest {
      * @param <T>         Bean类型
      * @return 复制后的List
      * @since 5.6.4
-     */
+     *//*
+
     public static <T> List<T> copyToList(Collection<?> collection, Class<T> targetType, CopyOptions copyOptions) {
         if (null == collection) {
             return null;
@@ -1002,7 +1091,8 @@ public class BeanTest {
         }).collect(Collectors.toList());
     }
 
-    /**
+    */
+/**
      * 复制集合中的Bean属性<br>
      * 此方法遍历集合中每个Bean，复制其属性后加入一个新的{@link List}中。
      *
@@ -1011,12 +1101,14 @@ public class BeanTest {
      * @param <T>        Bean类型
      * @return 复制后的List
      * @since 5.6.6
-     */
+     *//*
+
     public static <T> List<T> copyToList(Collection<?> collection, Class<T> targetType) {
         return copyToList(collection, targetType, CopyOptions.create());
     }
 
-    /**
+    */
+/**
      * 给定的Bean的类名是否匹配指定类名字符串<br>
      * 如果isSimple为{@code false}，则只匹配类名而忽略包名，例如：cn.hutool.TestEntity只匹配TestEntity<br>
      * 如果isSimple为{@code true}，则匹配包括包名的全类名，例如：cn.hutool.TestEntity匹配cn.hutool.TestEntity
@@ -1026,7 +1118,8 @@ public class BeanTest {
      * @param isSimple      是否只匹配类名而忽略包名，true表示忽略包名
      * @return 是否匹配
      * @since 4.0.6
-     */
+     *//*
+
     public static boolean isMatchName(Object bean, String beanClassName, boolean isSimple) {
         if (null == bean || StrUtil.isBlank(beanClassName)) {
             return false;
@@ -1034,7 +1127,8 @@ public class BeanTest {
         return ClassUtil.getClassName(bean, isSimple).equals(isSimple ? StrUtil.upperFirst(beanClassName) : beanClassName);
     }
 
-    /**
+    */
+/**
      * 编辑Bean的字段，static字段不会处理<br>
      * 例如需要对指定的字段做判空操作、null转""操作等等。
      *
@@ -1043,7 +1137,8 @@ public class BeanTest {
      * @param <T>    被编辑的Bean类型
      * @return bean
      * @since 5.6.4
-     */
+     *//*
+
     public static <T> T edit(T bean, Editor<Field> editor) {
         if (bean == null) {
             return null;
@@ -1059,7 +1154,8 @@ public class BeanTest {
         return bean;
     }
 
-    /**
+    */
+/**
      * 把Bean里面的String属性做trim操作。此方法直接对传入的Bean做修改。
      * <p>
      * 通常bean直接用来绑定页面的input，用户的输入可能首尾存在空格，通常保存数据库前需要把首尾空格去掉
@@ -1068,7 +1164,8 @@ public class BeanTest {
      * @param bean         Bean对象
      * @param ignoreFields 不需要trim的Field名称列表（不区分大小写）
      * @return 处理后的Bean对象
-     */
+     *//*
+
     public static <T> T trimStrFields(T bean, String... ignoreFields) {
         return edit(bean, (field) -> {
             if (ignoreFields != null && ArrayUtil.containsIgnoreCase(ignoreFields, field.getName())) {
@@ -1090,19 +1187,22 @@ public class BeanTest {
         });
     }
 
-    /**
+    */
+/**
      * 判断Bean是否为非空对象，非空对象表示本身不为{@code null}或者含有非{@code null}属性的对象
      *
      * @param bean             Bean对象
      * @param ignoreFiledNames 忽略检查的字段名
      * @return 是否为非空，{@code true} - 非空 / {@code false} - 空
      * @since 5.0.7
-     */
+     *//*
+
     public static boolean isNotEmpty(Object bean, String... ignoreFiledNames) {
         return false == isEmpty(bean, ignoreFiledNames);
     }
 
-    /**
+    */
+/**
      * 判断Bean是否为空对象，空对象表示本身为{@code null}或者所有属性都为{@code null}<br>
      * 此方法不判断static属性
      *
@@ -1110,7 +1210,8 @@ public class BeanTest {
      * @param ignoreFiledNames 忽略检查的字段名
      * @return 是否为空，{@code true} - 空 / {@code false} - 非空
      * @since 4.1.10
-     */
+     *//*
+
     public static boolean isEmpty(Object bean, String... ignoreFiledNames) {
         if (null != bean) {
             for (Field field : ReflectUtil.getFields(bean.getClass())) {
@@ -1126,7 +1227,8 @@ public class BeanTest {
         return true;
     }
 
-    /**
+    */
+/**
      * 判断Bean是否包含值为{@code null}的属性<br>
      * 对象本身为{@code null}也返回true
      *
@@ -1134,7 +1236,8 @@ public class BeanTest {
      * @param ignoreFiledNames 忽略检查的字段名
      * @return 是否包含值为<code>null</code>的属性，{@code true} - 包含 / {@code false} - 不包含
      * @since 4.1.10
-     */
+     *//*
+
     public static boolean hasNullField(Object bean, String... ignoreFiledNames) {
         if (null == bean) {
             return true;
@@ -1186,9 +1289,11 @@ public class BeanTest {
         assertEquals(2,result.size());
         Assert.assertSame(list.get(0),result.get(0));
         Assert.assertSame(list.get(1),result.get(1));
-        /**
+        */
+/**
          *
-         */
+         *//*
+
     }
 
     @org.junit.Test
@@ -1206,9 +1311,11 @@ public class BeanTest {
         assertEquals(2,result.size());
         Assert.assertSame(list.get(0),result.get(0));
         Assert.assertSame(list.get(1),result.get(1));
-        /**
+        */
+/**
          *
-         */
+         *//*
+
     }
 
     @org.junit.Test
@@ -1225,9 +1332,11 @@ public class BeanTest {
         Assert.assertSame(entities.get(0),result.get(0));
         Assert.assertSame(entities.get(1),result.get(1));
 
-        /**
+        */
+/**
          *
-         */
+         *//*
+
 
     }
 
@@ -1377,20 +1486,26 @@ public class BeanTest {
   //-----------------------------------------------------------------------------------------------------------
   //-----------------------------------------------------------------------------------------------------------
 
-    /** @deprecated */
+    */
+/** @deprecated *//*
+
     @Deprecated
     private static int debug = 0;
 
     public BeanTest() {
     }
 
-    /** @deprecated */
+    */
+/** @deprecated *//*
+
     @Deprecated
     public static int getDebug() {
         return debug;
     }
 
-    /** @deprecated */
+    */
+/** @deprecated *//*
+
     @Deprecated
     public static void setDebug(int newDebug) {
         debug = newDebug;
@@ -1479,11 +1594,13 @@ public class BeanTest {
     }
 
 
-    /**
+    */
+/**
      * when set code factor alue equal or smaller than 1, get value
      * in SentinelConfig.coldFactor() will return DEFAULT_COLD_FACTOR
      * see {@link SentinelConfig#coldFactor()}
-     */
+     *//*
+
     @org.junit.Test
     public void testColdFactorEqualOrSmallerThanOne() {
         SentinelConfig.setConfig(SentinelConfig.COLD_FACTOR, "0.5");
@@ -1561,3 +1678,4 @@ public class BeanTest {
 
 }
 
+*/

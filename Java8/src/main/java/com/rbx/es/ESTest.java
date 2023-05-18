@@ -3,7 +3,6 @@ package com.rbx.es;
 import cn.hutool.core.date.DateField;
 //import com.ikang.idata.common.utils.DateUtil;
 import cn.hutool.core.date.DateUtil;
-import com.rbx.util.BeanTest;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.AutomatonQuery;
 import org.apache.lucene.search.MultiTermQuery;

@@ -1,5 +1,6 @@
 package com.rbx.newFeatures.demo02;
 
+import com.rbx.entity.Book;
 import com.rbx.entity.Employee;
 import com.rbx.entity.Apple;
 import lombok.extern.slf4j.Slf4j;
@@ -14,8 +15,35 @@ import java.util.stream.Stream;
 
 @Slf4j
 public class StreamTest {
+    public static void Test(){
+        List<Map<String, Object>> list = getListMap();
+        List<Object> collect = list.stream().map(map -> {
+                    System.out.println(map.get("1"));
+                    return null;
+                }
+        ).collect(Collectors.toList());
+    }
+
+    private static List<Map<String,Object>> getListMap() {
+        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map2 = new HashMap<>();
+        map.put("1",new Book(1L,"刀的两侧是光明与黑暗","哲学,爱情",88,"用一把刀划分了爱恨"));
+        map.put("2",new Book(2L,"一个人不能死在同一把刀下","个人成长,爱情",99,"讲述如何从失败中明悟真理"));
+        map.put("3",new Book(3L,"那风吹不到的地方","哲学",85,"带你用思维去领略世界的尽头"));
+
+        map2.put("10",new Book(4L,"刀的两侧是光明与黑暗","哲学,爱情",88,"用一把刀划分了爱恨"));
+        map2.put("20",new Book(5L,"一个人不能死在同一把刀下","个人成长,爱情",99,"讲述如何从失败中明悟真理"));
+        map2.put("30",new Book(6L,"那风吹不到的地方","哲学",85,"带你用思维去领略世界的尽头"));
+        ArrayList<Map<String, Object>> list = new ArrayList<>();
+        list.add(map);
+        list.add(map2);
+        return list;
+    }
+
     public static void main(String[] args) {
-        arr5();
+        //arr5();
+        Test();
+
     }
 
     //中间操作(往往对数据进行筛选)

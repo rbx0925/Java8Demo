@@ -1,3 +1,4 @@
+/*
 package com.rbx.newFeatures.optional;
 
 import com.alibaba.fastjson.JSON;
@@ -31,7 +32,8 @@ import java.util.stream.Stream;
 
 @Slf4j
 public class OptionalTest {
-    /**
+    */
+/**
      * Optional 是一个容器对象，可以存储对象、字符串等值，当然也可以存储 null 值。Optional 提供很多有用的方法，能帮助我们将 Java 中的对象等一些值存入其中，这样我们就不用显式进行空值检测，使我们能够用少量的代码完成复杂的流程。
      *
      * 比如它提供了：
@@ -49,7 +51,8 @@ public class OptionalTest {
      * …等等一些其它常用方法，下面会进行介绍。
      *
      * 使用 Optional 可以帮助我们解决业务中，减少值动不动就抛出空指针异常问题，也减少 null 值的判断，提高代码可读性等，这里我们介绍下，如果使用这个 Optional 类。
-     */
+     *//*
+
 
     //静态方法 Optional.of()
     //为指定的值创建一个指定非 null 值的 Optional。
@@ -176,11 +179,13 @@ public class OptionalTest {
         });
         System.out.println("输出值为" + object1);
 
-        /**
+        */
+/**
          * 打印结果
          * object  新的一周
          * object1 执行逻辑和生成默认值
-         */
+         *//*
+
     }
 
     //orElseThrow()
@@ -212,11 +217,13 @@ public class OptionalTest {
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-        /**
+        */
+/**
          * 打印结果
          * elseThrow  加油加油
          * elseThrow1  抛出异常并报错
-         */
+         *//*
+
     }
 
     //对象方法 map()
@@ -237,12 +244,14 @@ public class OptionalTest {
         System.out.println("获取的name1 的值" + optional.orElse("默认值"));
         System.out.println("获取的name2 的值" + optional1.orElse("默认值"));
 
-        /**
+        */
+/**
          * 打印结果
          *
          * name1  jiayou
          * name2  默认值
-         */
+         *//*
+
     }
 
 
@@ -279,11 +288,13 @@ public class OptionalTest {
             System.out.println("获取的名称 " + name);
             System.out.println("获取的名称 " + name1);
 
-            /**
+            */
+/**
              * 打印结果
              * name 测试名称
              * name1 未填写
-             */
+             *//*
+
             //通过上面两个示例观察到，通过 Optional 对象的 map 方法能够获取映射对象中的属，创建 Optional 对象，并以此属性充当 Optional 的值，结合 orElse 方法，如果获取的属性的值为空，则设置个默认值。
         }
 
@@ -302,10 +313,12 @@ public class OptionalTest {
             Optional optional1 = optional.flatMap( value -> Optional.ofNullable(value.get("name")));
             System.out.println("获取的Optional 的值" + optional1.get());
 
-            /**
+            */
+/**
              * 打印结果
              * jiayou
-             */
+             *//*
+
 
         }
 
@@ -324,11 +337,13 @@ public class OptionalTest {
             Optional optional2 = optional.filter((value) -> value.length() < 2);
             System.out.println("Optional的值不为空 " + optional2.isPresent());
 
-            /**
+            */
+/**
              * 打印结果
              * optional1  true
              * optional2  false
-             */
+             *//*
+
         }
 
         //Optional 常用示例组合
@@ -366,11 +381,13 @@ public class OptionalTest {
 
     @Value("${bigdata.url.doctor.doctorReadUrl}")
     private String doctorReadUrl;
-    /**
+    */
+/**
      *
      * 指定索引文档数据中按某个字段分组后对应的文档总数
      *
-     */
+     *//*
+
     @Test
     public void testCountGroupBy() {
         SearchRequest searchRequest = new SearchRequest();
@@ -504,7 +521,8 @@ public class OptionalTest {
 //                }).collect(Collectors.toList());
    }
 
-    /**
+    */
+/**
      * {
      * 	"size": 0,
      * 	"aggregations": {
@@ -541,7 +559,8 @@ public class OptionalTest {
      * ————————————————
      * 版权声明：本文为CSDN博主「时间静适」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
      * 原文链接：https://blog.csdn.net/weixin_43884057/article/details/117114699
-     */
+     *//*
+
 
 
     AggregationBuilder timeAgg = AggregationBuilders
@@ -551,7 +570,8 @@ public class OptionalTest {
             //.timeZone(ZoneId.of("Asia/Shanghai"))
             .format("yyyy-MM-dd");
 
-    /**
+    */
+/**
      * {
      *   "size": 0,
      *   "aggs": {
@@ -568,14 +588,16 @@ public class OptionalTest {
      * ————————————————
      * 版权声明：本文为CSDN博主「时间静适」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
      * 原文链接：https://blog.csdn.net/weixin_43884057/article/details/117114699
-     */
+     *//*
+
 
 //    boolBuilder.must(
 //            QueryBuilders.nestedQuery("user",
 //            QueryBuilders.termQuery("user.name", "test"),
 //    ScoreMode.None);
 
-    /**
+    */
+/**
      * {
      * 	"query": {
      * 		"nested": {
@@ -586,7 +608,8 @@ public class OptionalTest {
      *                                }* 			}
      *        }* 	}
      * }
-     */
+     *//*
+
 
     //boolBuilder.must(
     //        QueryBuilders.nestedQuery(
@@ -594,7 +617,8 @@ public class OptionalTest {
     //                QueryBuilders.termQuery("user.address.country","China"),
     //                ScoreMode.None)
 
-    /**
+    */
+/**
      * {
      * 	"query": {
      * 		"nested": {
@@ -607,7 +631,8 @@ public class OptionalTest {
      *        }* 	}
      * }
      *
-     */
+     *//*
+
 
     @Test
     public void test() {
@@ -634,10 +659,12 @@ public class OptionalTest {
                 .forEach(System.out::println);
         // for 循环打印
 
-        /**
+        */
+/**
          * C1
          * C2
-         */
+         *//*
+
 
     }
 
@@ -653,9 +680,11 @@ public class OptionalTest {
         // 如果存在，即输出
 
 
-        /**
+        */
+/**
          * a1
-         */
+         *//*
+
     }
 
 
@@ -665,32 +694,40 @@ public class OptionalTest {
                 .findFirst()
                 .ifPresent(System.out::println);
 
-        /**
+        */
+/**
          * a1
-         */
+         *//*
+
 
     }
 
-    /**
+    */
+/**
      * IntStreams.range()方法还可以被用来取代常规的 for 循环
      * 原始类型流使用其独有的函数式接口，例如IntFunction代替Function，IntPredicate代替Predicate。
-     */
+     *//*
+
     @Test
     public void IntStream() {
         IntStream.range(1, 4)
                 .forEach(System.out::println);
         // 相当于 for (int i = 1; i < 4; i++) {}
 
-        /**
+        */
+/**
          * 1
          * 2
          * 3
-         */
+         *//*
+
     }
 
-    /**
+    */
+/**
      * 原始类型流支持额外的终端聚合操作，sum()以及average()，如下所示：
-     */
+     *//*
+
     @Test
     public void average() {
         Arrays.stream(new int[]{1, 2, 3})
@@ -700,15 +737,19 @@ public class OptionalTest {
                 // 求平均值
                 .ifPresent(System.out::println);
         // 如果值不为空，则输出
-        /**
+        */
+/**
          *  5.0
-         */
+         *//*
+
     }
 
-    /**
+    */
+/**
      * 需要将常规对象流转换为原始类型流，
      * 这个时候，中间操作 mapToInt()，mapToLong() 以及mapToDouble就派上用场了
-     */
+     *//*
+
     @Test
     public void mapToInt() {
 
@@ -722,15 +763,19 @@ public class OptionalTest {
                 .ifPresent(System.out::println);
         // 不为空则输出
 
-        /**
+        */
+/**
          * 3
-         */
+         *//*
+
     }
 
 
-    /**
+    */
+/**
      * 需要将原始类型流装换成对象流，您可以使用 mapToObj()来达到目的：
-     */
+     *//*
+
     @Test
     public void maoToObj() {
         IntStream.range(1, 4)
@@ -739,11 +784,13 @@ public class OptionalTest {
                 .forEach(System.out::println);
         // for 循环打印
 
-        /**
+        */
+/**
          * a1
          * a2
          * a3
-         */
+         *//*
+
 
         System.out.println("-----------------------------------");
 
@@ -755,11 +802,13 @@ public class OptionalTest {
                 .forEach(System.out::println);
         // for 循环打印
 
-        /**
+        */
+/**
          * a1
          * a2
          * a3
-         */
+         *//*
+
     }
     @Test
     public void stream1() {
@@ -770,11 +819,13 @@ public class OptionalTest {
                     System.out.println("filter: " + s);
                     return true;
                 });
-        /**
+        */
+/**
          * 实际去执行的时候，它不会打印任何内容
          *
          * 出现这样的原因是：当且仅当存在终端操作时，中间操作操作才会被执行。
-         */
+         *//*
+
 
         Stream.of("d2", "a2", "b1", "b3", "c")
                 .filter(s -> {
@@ -783,7 +834,8 @@ public class OptionalTest {
                 })
                 .forEach(s -> System.out.println("forEach: " + s));
 
-        /**
+        */
+/**
          * filter:  d2
          * forEach: d2
          * filter:  a2
@@ -794,7 +846,8 @@ public class OptionalTest {
          * forEach: b3
          * filter:  c
          * forEach: c
-         */
+         *//*
+
     }
 
     @Test
@@ -811,14 +864,16 @@ public class OptionalTest {
                     // 过滤出以 A 为前缀的元素
                 });
 
-        /**
+        */
+/**
          * 终端操作 anyMatch()表示任何一个元素以 A 为前缀，返回为 true，就停止循环。
          * 所以它会从 d2 开始匹配，接着循环到 a2 的时候，返回为 true ，于是停止循环。
          *  map:      d2
          *  anyMatch: D2
          *  map:      a2
          *  anyMatch: A2
-         */
+         *//*
+
 
     }
 
@@ -842,7 +897,8 @@ public class OptionalTest {
                 .forEach(s -> System.out.println("forEach: " + s));
         // for 循环输出
 
-        /**
+        */
+/**
          * map:     d2
          * filter:  D2
          * map:     a2
@@ -854,7 +910,8 @@ public class OptionalTest {
          * filter:  B3
          * map:     c
          * filter:  C
-         */
+         *//*
+
     }
 
 
@@ -877,7 +934,8 @@ public class OptionalTest {
                 .forEach(s -> System.out.println("forEach: " + s));
         // for 循环输出
 
-        /**
+        */
+/**
          *  filter:  d2
          *  filter:  a2
          *  map:     a2
@@ -885,7 +943,8 @@ public class OptionalTest {
          *  filter:  b1
          *  filter:  b3
          *  filter:  c
-         */
+         *//*
+
     }
 
     @Test
@@ -912,7 +971,8 @@ public class OptionalTest {
         // for 循环输出
 
         //sorted是水平执行的。因此，在这种情况下，sorted会对集合中的元素组合调用八次。
-        /**
+        */
+/**
          * sort:    a2; d2
          * sort:    b1; a2
          * sort:    b1; d2
@@ -928,7 +988,8 @@ public class OptionalTest {
          * filter:  b3
          * filter:  c
          * filter:  d2
-         */
+         *//*
+
     }
 
 
@@ -953,7 +1014,8 @@ public class OptionalTest {
 
         //看到了 sorted从未被调用过，因为经过filter过后的元素已经减少到只有一个，
         // 这种情况下，是不用执行排序操作的。因此性能被大大提高了。
-        /**
+        */
+/**
          *  filter:  d2
          *  filter:  a2
          *  filter:  b1
@@ -961,7 +1023,9 @@ public class OptionalTest {
          *  filter:  c
          *  map:     a2
          *  forEach: A2
-         */
+         *//*
+
     }
 
 }
+*/

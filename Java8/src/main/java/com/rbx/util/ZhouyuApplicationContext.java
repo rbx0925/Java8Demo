@@ -1,3 +1,4 @@
+/*
 package com.rbx.util;
 
 import org.springframework.beans.factory.BeanNameAware;
@@ -183,3 +184,4 @@ public class ZhouyuApplicationContext {
 
     }
 }
+*/
